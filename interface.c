@@ -396,14 +396,8 @@ void volume_step_down(void)
   sei();
 }
 //=============================================================================
-void set_blink(void)
+void scan_fault(void)
 {
-  blinks = !blinks;
-  if (nokey < NOKEY_TIME * 2) {
-    nokey++;
-  } else {
-    RTOS_setTask(EVENT_NOKEY, 0, 0);
-  }
   if (fault_on == 0) {
     if (check_fault() == 1) {
 	  fault_on = 1;
@@ -412,6 +406,16 @@ void set_blink(void)
         RTOS_setTask(EVENT_KEY_STANDBY, 0, 0);
 	  }
 	}
+  }
+}
+//=============================================================================
+void set_blink(void)
+{
+  blinks = !blinks;
+  if (nokey < NOKEY_TIME * 2) {
+    nokey++;
+  } else {
+    RTOS_setTask(EVENT_NOKEY, 0, 0);
   }
   if ((check_alarm() == 1) && (main_mode != MODE_OPTIONS) && (fault_on == 0)) {
 	BEEP(); 

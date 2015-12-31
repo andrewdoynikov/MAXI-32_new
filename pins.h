@@ -190,6 +190,7 @@
 #define TIME_YEAR_MAX		99 
 #define TIME_RETURN_VOLUME	10000
 #define TIME_SAVE_PARAM	    2000
+#define TIME_FAULT	    	500
 
 
 #endif /* PINS_H */

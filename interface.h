@@ -57,6 +57,7 @@ void volume_step_up(void);
 uint8_t check_alarm(void);
 void alarm_beep(void);
 uint8_t check_fault(void);
+void scan_fault(void);
 //=============================================================================
 void save_max_temperature(uint8_t temp);
 uint8_t load_max_temperature(void);
