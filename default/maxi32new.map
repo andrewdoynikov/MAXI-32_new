@@ -1,0 +1,853 @@
+Archive member included because of file (symbol)
+
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+                              tuner.o (__mulsi3)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodqi4.o)
+                              ds1307.o (__udivmodqi4)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodhi4.o)
+                              lcd_lib.o (__udivmodhi4)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_divmodhi4.o)
+                              lcd_lib.o (__divmodhi4)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodsi4.o)
+                              tuner.o (__udivmodsi4)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+                              c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+                              lcd_lib.o (__do_copy_data)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                              kbd.o (__do_clear_bss)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+                              interface.o (__eerd_byte_m32)
+c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+                              interface.o (__eewr_byte_m32)
+
+Allocating common symbols
+Common symbol       size              file
+
+old_chan            0x1               interface.o
+mm                  0x1               interface.o
+vol_up              0x1               interface.o
+fm_stations         0x1f              tuner.o
+a_onoff             0x1               interface.o
+old_pState          0x2               interface.o
+ss                  0x1               interface.o
+old_max_temp        0x1               interface.o
+ms                  0x1               interface.o
+a_wday              0x1               interface.o
+dd                  0x1               interface.o
+a_mm                0x1               interface.o
+stb_out             0x1               interface.o
+a_ss                0x1               interface.o
+as_wait             0x1               interface.o
+rc5_code            0x26              interface.o
+yy                  0x1               interface.o
+vol_down            0x1               interface.o
+old_as_wait         0x1               interface.o
+hh                  0x1               interface.o
+rc5                 0x3               rc5.o
+max_temp            0x1               interface.o
+a_hh                0x1               interface.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+LOAD main.o
+LOAD lcd_lib.o
+LOAD i2c.o
+LOAD ds1307.o
+LOAD kbd.o
+LOAD enc.o
+LOAD rtos.o
+LOAD interface.o
+LOAD ds18x20.o
+LOAD rc5.o
+LOAD tda7313.o
+LOAD tuner.o
+LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a
+LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a
+LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x4586
+ *(.vectors)
+ .vectors       0x00000000       0x54 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000054       0x80 lcd_lib.o
+                0x00000054                LcdCustomChar
+                0x00000094                LcdBigNum
+                0x000000d4                . = ALIGN (0x2)
+                0x000000d4                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000d4        0x0 linker stubs
+ *(.trampolines*)
+                0x000000d4                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000d4                __ctors_start = .
+ *(.ctors)
+                0x000000d4                __ctors_end = .
+                0x000000d4                __dtors_start = .
+ *(.dtors)
+                0x000000d4                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000d4        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+                0x000000d4                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000d4        0xc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000e0       0x16 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+                0x000000e0                __do_copy_data
+ .init4         0x000000f6       0x10 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+                0x000000f6                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000106        0x8 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x0000010e        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+                0x0000010e                __vector_12
+                0x0000010e                __bad_interrupt
+                0x0000010e                __vector_6
+                0x0000010e                __vector_3
+                0x0000010e                __vector_13
+                0x0000010e                __vector_17
+                0x0000010e                __vector_19
+                0x0000010e                __vector_7
+                0x0000010e                __vector_4
+                0x0000010e                __vector_9
+                0x0000010e                __vector_2
+                0x0000010e                __vector_15
+                0x0000010e                __vector_8
+                0x0000010e                __vector_14
+                0x0000010e                __vector_10
+                0x0000010e                __vector_16
+                0x0000010e                __vector_18
+                0x0000010e                __vector_20
+ .text          0x00000112       0x8e main.o
+                0x00000112                main
+ .text          0x000001a0      0x30c lcd_lib.o
+                0x000001a0                lcd
+                0x00000214                LCD_com
+                0x0000021e                LCD_dat
+                0x00000240                LCD_puts
+                0x00000268                LCD_SetXY
+                0x00000282                LCD_clear
+                0x0000029c                LCD_definechar
+                0x000002f4                LCD_progress_bar
+                0x00000382                LCD_space
+                0x0000039e                LCD_load_defchar
+                0x000003d6                LCD_load_bignum
+                0x0000040e                LCD_init
+ .text          0x000004ac      0x1a6 i2c.o
+                0x000004ac                delay
+                0x000004ce                I2C_start
+                0x000004fc                I2C_stop
+                0x0000052a                I2C_init
+                0x00000560                I2C_write
+                0x000005ec                I2C_read
+ .text          0x00000652      0x456 ds1307.o
+                0x00000652                RTC_write_reg
+                0x00000688                RTC_read_reg
+                0x000006cc                RTC_init
+                0x000006ea                bcd2bin
+                0x00000702                RTC_get_date
+                0x0000076c                RTC_get_time
+                0x000007d6                bin2bcd
+                0x000007ea                RTC_set_date
+                0x0000083e                RTC_set_time
+                0x00000892                RTC_dayofweek
+                0x0000090e                print_dec
+                0x000009b6                RTC_print_date
+                0x00000a1e                RTC_print_time
+                0x00000a7a                print_hex
+ .text          0x00000aa8      0x2c2 kbd.o
+                0x00000aa8                KBD_set_type
+                0x00000aae                KBD_init
+                0x00000ae6                debounce_sw_standby
+                0x00000b1a                debounce_sw_left
+                0x00000b5c                debounce_sw_right
+                0x00000b9e                debounce_sw_set
+                0x00000bd2                debounce_sw_menu
+                0x00000c0a                debounce_sw_select
+                0x00000c3e                debounce_sw_up
+                0x00000c80                debounce_sw_down
+                0x00000cc2                KBD_scan
+ .text          0x00000d6a       0x9a enc.o
+                0x00000d6a                ENC_init
+                0x00000d74                ENC_scan
+ .text          0x00000e04      0x3ae rtos.o
+                0x00000e04                RTOS_init
+                0x00000e1e                RTOS_setTask
+                0x00000ef0                RTOS_setTaskFunc
+                0x00000fd8                RTOS_deleteTask
+                0x0000103e                RTOS_deleteTaskFunc
+                0x000010b4                RTOS_dispatchTask
+                0x00001190                __vector_5
+ .text          0x000011b2     0x266e interface.o
+                0x000011b2                DS18x20_scan
+                0x000012ea                alarm_beep
+                0x0000130e                rc5_buffer_init
+                0x00001322                get_rc5_key
+                0x00001348                RC5_scan
+                0x000013d4                save_rc5code_key
+                0x000013f8                save_rc5code
+                0x0000141a                load_rc5code_key
+                0x00001440                load_rc5code
+                0x00001454                save_alarm_param
+                0x00001494                load_alarm_param
+                0x00001508                save_as_wait
+                0x00001514                load_as_wait
+                0x00001528                save_max_temperature
+                0x00001534                load_max_temperature
+                0x0000154c                save_stb_out
+                0x00001558                load_stb_out
+                0x0000156a                check_fault
+                0x00001594                lcd_bigchar
+                0x00001648                show_bigtime
+                0x000017aa                show_temperature
+                0x00001880                show_freq
+                0x00001930                show_lcd_main
+                0x00001a4a                run_main
+                0x00001cd0                run_nokey
+                0x00001d4e                run_mute
+                0x00001db6                volume_step_down
+                0x00001e2a                run_stop
+                0x00001eb4                volume_step_up
+                0x00001f2a                run_start
+                0x00002024                show_lcd_option
+                0x000021ee                run_standby
+                0x000023b4                show_lcd_edit_time
+                0x00002460                run_edit_time
+                0x00002596                show_lcd_edit_date
+                0x00002666                run_edit_date
+                0x000027bc                show_lcd_edit_alarm
+                0x00002998                run_edit_alarm
+                0x00002b7c                show_lcd_edit_as_wait
+                0x00002bb2                run_edit_as_wait
+                0x00002c80                show_lcd_edit_temp_max
+                0x00002cba                run_edit_temp_max
+                0x00002d88                show_lcd_edit_stb_out
+                0x00002db0                run_edit_stb_out
+                0x00002e98                show_lcd_edit_fm_stations
+                0x00002f4e                run_edit_fm_stations
+                0x00003280                run_alarm
+                0x000032ec                check_alarm
+                0x0000335e                set_blink
+                0x00003448                show_lcd_edit_rc5_code
+                0x000034da                run_edit_rc5_code
+                0x00003600                run_option
+ .text          0x00003820      0x386 ds18x20.o
+                0x000038dc                ds18x20GetAddress
+                0x00003910                ds18x20SearchDevices
+                0x00003a42                ds18x20Process
+                0x00003b52                ds18x20GetTemp
+                0x00003ba0                ds18x20GetDevCount
+ .text          0x00003ba6      0x184 rc5.o
+                0x00003ba6                RC5_init
+                0x00003bd0                __vector_11
+                0x00003c70                __vector_1
+ .text          0x00003d2a      0x454 tda7313.o
+                0x00003d2a                tda7313GetInput
+                0x00003d30                tda7313GetLoudness
+                0x00003d36                tda7313Get_Param
+                0x00003d52                tda7313Set_Param_no_send
+                0x00003d6e                tda7313Get_Max_Param
+                0x00003d7a                tda7313Send_Param
+                0x00003f0e                tda7313Set_Param_down
+                0x00003f36                tda7313Set_Param_up
+                0x00003f68                tda7313Set_Param
+                0x00003f88                tda7313SetInput
+                0x00003f92                tda7313SetLoudness
+                0x00003f9c                tda7313SetMute
+                0x00003fce                tda7313_Save_Input
+                0x00003fda                tda7313_Load_Input
+                0x00003ff4                tda7313_Save_Loudness
+                0x00004000                tda7313_Load_Loudness
+                0x0000401c                tda7313_Save_param
+                0x00004068                tda7313_Save_all_param
+                0x0000409e                tda7313_Load_param
+                0x000040d2                tda7313_Load_all_param
+                0x00004158                tda7313_Save_vol_fm_edit
+                0x00004164                tda7313_Load_vol_fm_edit
+ .text          0x0000417e      0x2f2 tuner.o
+                0x000041a8                tea5767Init
+                0x00004220                tea5767SetFreq
+                0x00004290                tea5767ReadStatus
+                0x000042ca                tea5767SetMute
+                0x000042e2                tea5767PowerOn
+                0x000042f8                tea5767PowerOff
+                0x0000430a                tuner_Init_stations
+                0x0000431c                tuner_ChanToFreq
+                0x0000432c                tuner_FreqToChan
+                0x0000433c                tuner_GetChan
+                0x00004350                tuner_SetChan
+                0x0000437c                tuner_SetChannel
+                0x0000439e                tuner_Save_stations
+                0x000043b8                tuner_Load_stations
+                0x000043c2                tuner_Save_all_stations
+                0x000043f0                tuner_Load_all_stations
+                0x0000441e                tuner_Save_channel
+                0x0000442a                tuner_Load_channel
+                0x0000443a                tuner_Save_volume
+                0x00004446                tuner_Load_volume
+                0x00004450                get_fm_def_chan
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodqi4.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+ .text          0x00004470        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+                0x00004470                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00004470       0x3e c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+                0x00004470                __mulsi3
+ .text.libgcc   0x000044ae       0x18 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodqi4.o)
+                0x000044ae                __udivmodqi4
+ .text.libgcc   0x000044c6       0x28 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodhi4.o)
+                0x000044c6                __udivmodhi4
+ .text.libgcc   0x000044ee       0x26 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_divmodhi4.o)
+                0x000044ee                _div
+                0x000044ee                __divmodhi4
+ .text.libgcc   0x00004514       0x44 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodsi4.o)
+                0x00004514                __udivmodsi4
+ .text.libgcc   0x00004558        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00004558        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00004558        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x00004558       0x10 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+                0x00004558                __eerd_byte_m32
+ .text.avr-libc
+                0x00004568       0x1a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+                0x00004568                __eewr_byte_m32
+                0x0000456a                __eewr_r18_m32
+                0x00004582                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00004582        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+                0x00004582                _exit
+                0x00004582                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00004582        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00004586                _etext = .
+
+.data           0x00800060      0x42a load address 0x00004586
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+ .data          0x00800060        0x0 main.o
+ .data          0x00800060       0x44 lcd_lib.o
+                0x00800060                TransTable
+ .data          0x008000a4        0x0 i2c.o
+ .data          0x008000a4        0x0 ds1307.o
+ .data          0x008000a4        0x1 kbd.o
+                0x008000a4                kbd_type
+ .data          0x008000a5        0x0 enc.o
+ .data          0x008000a5        0x2 rtos.o
+                0x008000a5                pState
+ .data          0x008000a7      0x3a4 interface.o
+                0x00800150                den_dw
+                0x008001ac                den_dw_full
+                0x0080022a                mainmenu
+                0x00800246                input
+                0x008002c1                optionmenu
+                0x008002d9                alarm_onoff
+                0x008003e7                rc5_menu
+                0x0080040d                rc5_cmd
+                0x0080040e                bignumchars1
+                0x0080042c                bignumchars2
+ .data          0x0080044b        0x0 ds18x20.o
+ .data          0x0080044b        0x0 rc5.o
+ .data          0x0080044b       0x3e tda7313.o
+                0x0080044b                tda7313_param
+                0x00800463                tda7313_attens
+                0x00800467                tda7313_max_param
+                0x0080046f                tda7313_bass_treb
+                0x0080047f                tda7313_def_param
+ .data          0x00800489        0x1 tuner.o
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodqi4.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+ .data          0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080048a                . = ALIGN (0x2)
+                0x0080048a                _edata = .
+                0x0080048a                PROVIDE (__data_end, .)
+
+.bss            0x0080048a      0x13b
+                0x0080048a                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080048a        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x0080048a        0x0 main.o
+ .bss           0x0080048a        0x0 lcd_lib.o
+ .bss           0x0080048a        0x0 i2c.o
+ .bss           0x0080048a        0x0 ds1307.o
+ .bss           0x0080048a       0x10 kbd.o
+ .bss           0x0080049a        0x1 enc.o
+ .bss           0x0080049b       0x83 rtos.o
+                0x0080049b                timerInterrupt
+ .bss           0x0080051e        0xf interface.o
+                0x0080051e                blinks
+                0x0080051f                nokey
+                0x00800520                mmenu
+                0x00800521                omenu
+                0x00800522                rc5menu
+                0x00800523                nedit
+                0x00800524                mute
+                0x00800525                key_stb
+                0x00800526                edit_rc5
+                0x00800527                time_alarm
+                0x00800528                fault_on
+                0x00800529                fm_mode
+                0x0080052a                channel
+                0x0080052b                main_mode
+ .bss           0x0080052d       0x2c ds18x20.o
+ .bss           0x00800559        0x5 rc5.o
+ .bss           0x0080055e        0x0 tda7313.o
+ .bss           0x0080055e        0xa tuner.o
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodqi4.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+ .bss           0x00800568        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800568       0x3b interface.o
+                0x00800568                old_chan
+                0x00800569                mm
+                0x0080056a                vol_up
+                0x0080056b                a_onoff
+                0x0080056c                old_pState
+                0x0080056e                ss
+                0x0080056f                old_max_temp
+                0x00800570                ms
+                0x00800571                a_wday
+                0x00800572                dd
+                0x00800573                a_mm
+                0x00800574                stb_out
+                0x00800575                a_ss
+                0x00800576                as_wait
+                0x00800577                rc5_code
+                0x0080059d                yy
+                0x0080059e                vol_down
+                0x0080059f                old_as_wait
+                0x008005a0                hh
+                0x008005a1                max_temp
+                0x008005a2                a_hh
+ COMMON         0x008005a3        0x3 rc5.o
+                0x008005a3                rc5
+ COMMON         0x008005a6       0x1f tuner.o
+                0x008005a6                fm_stations
+                0x008005c5                PROVIDE (__bss_end, .)
+                0x00004586                __data_load_start = LOADADDR (.data)
+                0x000049b0                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008005c5        0x0
+                0x008005c5                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008005c5                PROVIDE (__noinit_end, .)
+                0x008005c5                _end = .
+                0x008005c5                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x834
+ *(.stab)
+ .stab          0x00000000      0x6cc c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+ .stab          0x000006cc       0x90 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eerd_byte_atmega32.o)
+                                 0x9c (size before relaxing)
+ .stab          0x0000075c       0xd8 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5\libc.a(eewr_byte_atmega32.o)
+                                 0xe4 (size before relaxing)
+
+.stabstr        0x00000000      0x14b
+ *(.stabstr)
+ .stabstr       0x00000000      0x14b c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr5/crtm32.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x180
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 lcd_lib.o
+ .debug_aranges
+                0x00000040       0x20 i2c.o
+ .debug_aranges
+                0x00000060       0x20 ds1307.o
+ .debug_aranges
+                0x00000080       0x20 kbd.o
+ .debug_aranges
+                0x000000a0       0x20 enc.o
+ .debug_aranges
+                0x000000c0       0x20 rtos.o
+ .debug_aranges
+                0x000000e0       0x20 interface.o
+ .debug_aranges
+                0x00000100       0x20 ds18x20.o
+ .debug_aranges
+                0x00000120       0x20 rc5.o
+ .debug_aranges
+                0x00000140       0x20 tda7313.o
+ .debug_aranges
+                0x00000160       0x20 tuner.o
+
+.debug_pubnames
+                0x00000000      0xf71
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b main.o
+ .debug_pubnames
+                0x0000001b       0xf6 lcd_lib.o
+ .debug_pubnames
+                0x00000111       0x5f i2c.o
+ .debug_pubnames
+                0x00000170       0xf2 ds1307.o
+ .debug_pubnames
+                0x00000262       0xf5 kbd.o
+ .debug_pubnames
+                0x00000357       0x2c enc.o
+ .debug_pubnames
+                0x00000383       0xb5 rtos.o
+ .debug_pubnames
+                0x00000438      0x605 interface.o
+ .debug_pubnames
+                0x00000a3d       0x7e ds18x20.o
+ .debug_pubnames
+                0x00000abb       0x46 rc5.o
+ .debug_pubnames
+                0x00000b01      0x28a tda7313.o
+ .debug_pubnames
+                0x00000d8b      0x1e6 tuner.o
+
+.debug_info     0x00000000     0x3bde
+ *(.debug_info)
+ .debug_info    0x00000000      0x156 main.o
+ .debug_info    0x00000156      0x70e lcd_lib.o
+ .debug_info    0x00000864      0x15e i2c.o
+ .debug_info    0x000009c2      0x405 ds1307.o
+ .debug_info    0x00000dc7      0x336 kbd.o
+ .debug_info    0x000010fd      0x1e1 enc.o
+ .debug_info    0x000012de      0x2fb rtos.o
+ .debug_info    0x000015d9     0x1140 interface.o
+ .debug_info    0x00002719      0x848 ds18x20.o
+ .debug_info    0x00002f61      0x27f rc5.o
+ .debug_info    0x000031e0      0x51d tda7313.o
+ .debug_info    0x000036fd      0x4e1 tuner.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000     0x118d
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xf5 main.o
+ .debug_abbrev  0x000000f5      0x1a6 lcd_lib.o
+ .debug_abbrev  0x0000029b       0xcf i2c.o
+ .debug_abbrev  0x0000036a       0xef ds1307.o
+ .debug_abbrev  0x00000459      0x169 kbd.o
+ .debug_abbrev  0x000005c2      0x13d enc.o
+ .debug_abbrev  0x000006ff      0x136 rtos.o
+ .debug_abbrev  0x00000835      0x2b1 interface.o
+ .debug_abbrev  0x00000ae6      0x2f3 ds18x20.o
+ .debug_abbrev  0x00000dd9      0x111 rc5.o
+ .debug_abbrev  0x00000eea      0x11b tda7313.o
+ .debug_abbrev  0x00001005      0x188 tuner.o
+
+.debug_line     0x00000000     0x5189
+ *(.debug_line)
+ .debug_line    0x00000000      0x24d main.o
+ .debug_line    0x0000024d      0x54d lcd_lib.o
+ .debug_line    0x0000079a      0x330 i2c.o
+ .debug_line    0x00000aca      0x483 ds1307.o
+ .debug_line    0x00000f4d      0x45f kbd.o
+ .debug_line    0x000013ac      0x203 enc.o
+ .debug_line    0x000015af      0x413 rtos.o
+ .debug_line    0x000019c2     0x24b5 interface.o
+ .debug_line    0x00003e77      0x5c8 ds18x20.o
+ .debug_line    0x0000443f      0x29d rc5.o
+ .debug_line    0x000046dc      0x5cb tda7313.o
+ .debug_line    0x00004ca7      0x4e2 tuner.o
+
+.debug_frame    0x00000000      0xad0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x20 main.o
+ .debug_frame   0x00000020       0xd0 lcd_lib.o
+ .debug_frame   0x000000f0       0x70 i2c.o
+ .debug_frame   0x00000160       0xf0 ds1307.o
+ .debug_frame   0x00000250       0xc0 kbd.o
+ .debug_frame   0x00000310       0x30 enc.o
+ .debug_frame   0x00000340       0x80 rtos.o
+ .debug_frame   0x000003c0      0x350 interface.o
+ .debug_frame   0x00000710       0xa0 ds18x20.o
+ .debug_frame   0x000007b0       0x40 rc5.o
+ .debug_frame   0x000007f0      0x170 tda7313.o
+ .debug_frame   0x00000960      0x170 tuner.o
+
+.debug_str      0x00000000      0xf12
+ *(.debug_str)
+ .debug_str     0x00000000       0xcc main.o
+                                0x105 (size before relaxing)
+ .debug_str     0x000000cc       0xff lcd_lib.o
+                                0x208 (size before relaxing)
+ .debug_str     0x000001cb       0x3e i2c.o
+                                 0xdc (size before relaxing)
+ .debug_str     0x00000209       0xcb ds1307.o
+                                0x16f (size before relaxing)
+ .debug_str     0x000002d4       0xf4 kbd.o
+                                0x1ea (size before relaxing)
+ .debug_str     0x000003c8       0x31 enc.o
+                                0x127 (size before relaxing)
+ .debug_str     0x000003f9       0xe2 rtos.o
+                                0x184 (size before relaxing)
+ .debug_str     0x000004db      0x44e interface.o
+                                0x5b2 (size before relaxing)
+ .debug_str     0x00000929      0x1a8 ds18x20.o
+                                0x293 (size before relaxing)
+ .debug_str     0x00000ad1       0x55 rc5.o
+                                0x130 (size before relaxing)
+ .debug_str     0x00000b26      0x236 tda7313.o
+                                0x2d5 (size before relaxing)
+ .debug_str     0x00000d5c      0x1b6 tuner.o
+                                0x27b (size before relaxing)
+
+.debug_loc      0x00000000     0x22c8
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x2ec lcd_lib.o
+ .debug_loc     0x000002ec      0x101 i2c.o
+ .debug_loc     0x000003ed      0x3b9 ds1307.o
+ .debug_loc     0x000007a6       0xc2 kbd.o
+ .debug_loc     0x00000868      0x13d enc.o
+ .debug_loc     0x000009a5      0x19d rtos.o
+ .debug_loc     0x00000b42      0xa05 interface.o
+ .debug_loc     0x00001547      0x59f ds18x20.o
+ .debug_loc     0x00001ae6      0x1d7 rc5.o
+ .debug_loc     0x00001cbd      0x34f tda7313.o
+ .debug_loc     0x0000200c      0x2bc tuner.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(maxi32new.elf elf32-avr)
+LOAD linker stubs
+
+.debug_pubtypes
+                0x00000000      0x290
+ .debug_pubtypes
+                0x00000000       0x38 main.o
+ .debug_pubtypes
+                0x00000038       0x38 lcd_lib.o
+ .debug_pubtypes
+                0x00000070       0x2b i2c.o
+ .debug_pubtypes
+                0x0000009b       0x1e ds1307.o
+ .debug_pubtypes
+                0x000000b9       0x38 kbd.o
+ .debug_pubtypes
+                0x000000f1       0x38 enc.o
+ .debug_pubtypes
+                0x00000129       0x30 rtos.o
+ .debug_pubtypes
+                0x00000159       0x4e interface.o
+ .debug_pubtypes
+                0x000001a7       0x46 ds18x20.o
+ .debug_pubtypes
+                0x000001ed       0x4d rc5.o
+ .debug_pubtypes
+                0x0000023a       0x1e tda7313.o
+ .debug_pubtypes
+                0x00000258       0x38 tuner.o
+
+.debug_ranges   0x00000000       0x80
+ .debug_ranges  0x00000000       0x80 ds18x20.o
