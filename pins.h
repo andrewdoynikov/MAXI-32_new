@@ -180,7 +180,7 @@
 #define ALARM_BEEP	        60 * 2
 #define ALARM_CHAR	        '*'
 #define LOUDNESS_CHAR	    'L'
-#define BLINK_TIME		    600  // ms
+#define BLINK_TIME		    500  // ms
 #define DS18x20_SCAN_TIME   1000 // ms
 #define KBD_SCAN_TIME       5    // ms
 #define ENC_SCAN_TIME       1    // ms
@@ -190,7 +190,9 @@
 #define TIME_YEAR_MAX		99 
 #define TIME_RETURN_VOLUME	10000
 #define TIME_SAVE_PARAM	    2000
-#define TIME_FAULT	    	500
+#define TIME_FAULT	    	2
+#define TIME_SHOW_DS    	16    // sec
+#define TIME_SHOW_DS_1    	TIME_SHOW_DS / 2    // sec
 
 
 #endif /* PINS_H */

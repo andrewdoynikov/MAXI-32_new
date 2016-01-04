@@ -35,6 +35,7 @@ unsigned char hh, mm, ss, dd, ms, yy, a_hh, a_mm, a_ss, a_wday, a_onoff;
 unsigned char max_temp, old_max_temp, as_wait, old_as_wait, stb_out;
 unsigned char rc5_code[2][RC5_MENU_MAX + 1], rc5_cmd = 0xFF;
 unsigned char main_mode = MODE_STANDBY;
+unsigned char ds_cnt_show = 0;
 //-----------------------------------------------------------------------------
 char bignumchars1[] = {
   0x03,0x00,0x03, 0x00,0x03,0x20, 0x02,0x02,0x03, 0x00,0x02,0x03, 0x03,0x01,0x03,
@@ -179,6 +180,17 @@ uint8_t load_stb_out(void)
   return t;
 }
 //=============================================================================
+void stb_impuls(void)
+{
+  if (fault_on == 0) {
+    cli();
+    LED_STB_IMPULS_1;
+	_delay_ms(1000);
+	LED_STB_IMPULS_0;
+	sei();
+  }
+}
+//=============================================================================
 void DS18x20_scan(void)
 {
   static unsigned char ds_state = 0;
@@ -195,26 +207,61 @@ void DS18x20_scan(void)
     break;
     case 1:
 	  ds18x20Process();
-      ds_state = 2;
+      if (ds18x20GetDevCount() > 0) {
+        ds_state = 2;
+	  }
       RTOS_setTaskFunc(DS18x20_scan, 1000, 0);
     break;
     case 2:
-      if (ds18x20GetDevCount() >= 1) {
-		if ((ds18x20GetTemp(0) / 10) >= max_temp) { 
-		  LED_VENTIL_on();
-		} else {
-          if (ds18x20GetDevCount() == 1) {
-		    if ((ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER)) LED_VENTIL_off();
-		  }
-		}
+	  if ((ds18x20GetTemp(0) / 10) >= max_temp) { 
+	    LED_VENTIL_on();
       }
-      if (ds18x20GetDevCount() == 2) {
-		if (((ds18x20GetTemp(1) / 10) >= max_temp) || ((ds18x20GetTemp(0) / 10) >= max_temp)) {
-		  LED_VENTIL_on();
-		} else {
-		  if (((ds18x20GetTemp(1) / 10) <= (max_temp - ONE_WIRE_GISTER)) && ((ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER))) LED_VENTIL_off();
-		}
+      if (ds18x20GetDevCount() > 1) {
+        ds_state = 3;
+      } else {
+        ds_state = 6;
+	  }
+      RTOS_setTaskFunc(DS18x20_scan, 0, 0);
+    break;
+    case 3:
+	  if ((ds18x20GetTemp(1) / 10) >= max_temp) { 
+	    LED_VENTIL_on();
       }
+      if (ds18x20GetDevCount() > 2) {
+        ds_state = 4;
+      } else {
+        ds_state = 6;
+	  }
+      RTOS_setTaskFunc(DS18x20_scan, 0, 0);
+    break;
+    case 4:
+	  if ((ds18x20GetTemp(2) / 10) >= max_temp) { 
+	    LED_VENTIL_on();
+      }
+      if (ds18x20GetDevCount() > 3) {
+        ds_state = 5;
+      } else {
+        ds_state = 6;
+	  }
+      RTOS_setTaskFunc(DS18x20_scan, 0, 0);
+    break;
+    case 5:
+	  if ((ds18x20GetTemp(3) / 10) >= max_temp) { 
+	    LED_VENTIL_on();
+      }
+      ds_state = 6;
+      RTOS_setTaskFunc(DS18x20_scan, 0, 0);
+    break;
+    case 6:
+      if (ds18x20GetDevCount() == 1) {
+		if ( (ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER) ) LED_VENTIL_off();
+	  } else if (ds18x20GetDevCount() == 2) {
+		if ( (ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER) && (ds18x20GetTemp(1) / 10) <= (max_temp - ONE_WIRE_GISTER) ) LED_VENTIL_off();
+	  } else if (ds18x20GetDevCount() == 3) {
+		if ( (ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER) && (ds18x20GetTemp(1) / 10) <= (max_temp - ONE_WIRE_GISTER) && (ds18x20GetTemp(2) / 10) <= (max_temp - ONE_WIRE_GISTER) ) LED_VENTIL_off();
+      } else if (ds18x20GetDevCount() == 4) {
+		if ( (ds18x20GetTemp(0) / 10) <= (max_temp - ONE_WIRE_GISTER) && (ds18x20GetTemp(1) / 10) <= (max_temp - ONE_WIRE_GISTER) && (ds18x20GetTemp(2) / 10) <= (max_temp - ONE_WIRE_GISTER)  && (ds18x20GetTemp(3) / 10) <= (max_temp - ONE_WIRE_GISTER) ) LED_VENTIL_off();
+	  }
       ds_state = 0;
       RTOS_setTaskFunc(DS18x20_scan, ONE_WIRE_TIME, 0);
     break;
@@ -291,15 +338,18 @@ void show_bigtime(void)
     LCD_SetXY(0, 2); LCD_space(20);
     LCD_SetXY(0, 3); LCD_space(5);
 	if (blinks) LCD_puts(MSG_FAULT); else LCD_space(9);
-    LCD_SetXY(15, 3); LCD_space(5);
+    LCD_space(6);
   }
 }
 //=============================================================================
 void show_temperature(void)
 {
   int16_t t = 0;
+  if (ds_cnt_show <= TIME_SHOW_DS_1)
+  {
+// 1   ------------------------------------------------------------------------
   LCD_SetXY(0, 3);
-  if (ds18x20GetDevCount() >= 1) {
+  if (ds18x20GetDevCount() > 0) {
     t = ds18x20GetTemp(0) / 10;
 #if (TEMP_BLINK_MAX == 1) 
     if (t >= max_temp)  {
@@ -321,9 +371,13 @@ void show_temperature(void)
    if (t < 0) LCD_dat('-'); else LCD_dat('+');
    print_dec(t, 2,' '); LCD_dat('C');
 #endif
+  } else {
+    LCD_puts(MSG_NO_DS);
   }
+// 2   ------------------------------------------------------------------------
   LCD_SetXY(16, 3);
-  if (ds18x20GetDevCount() == 2) {
+  if (ds18x20GetDevCount() > 1) 
+  {
     t = ds18x20GetTemp(1) / 10;
 #if (TEMP_BLINK_MAX == 1) 
     if (t >= max_temp)  {
@@ -341,6 +395,68 @@ void show_temperature(void)
    if (t < 0) LCD_dat('-'); else LCD_dat('+');
    print_dec(t, 2,' '); LCD_dat('C');
 #endif
+  } else {
+    LCD_puts(MSG_NO_DS);
+  }
+  }
+
+  if ((ds_cnt_show > TIME_SHOW_DS_1) && (ds18x20GetDevCount() > 2))
+//  if (ds_cnt_show > TIME_SHOW_DS_1)
+  {
+// 3   ------------------------------------------------------------------------
+  LCD_SetXY(0, 3);
+  if (ds18x20GetDevCount() > 2)
+  {
+    t = ds18x20GetTemp(2) / 10;
+#if (TEMP_BLINK_MAX == 1) 
+    if (t >= max_temp)  {
+	  if (blinks == 0) {
+	    if (t < 0) LCD_dat('-'); else LCD_dat('+');
+	    print_dec(t, 2,' '); LCD_dat('C');
+	  } else {
+	    LCD_space(4);
+	  }
+    } else {
+	  if (t < 0) LCD_dat('-'); else LCD_dat('+');
+	  print_dec(t, 2,' '); LCD_dat('C');
+	}
+    if (ds18x20GetDevCount() == 1) {
+      LCD_SetXY(15, 3);
+	  LCD_puts("     ");
+	}
+#else
+   if (t < 0) LCD_dat('-'); else LCD_dat('+');
+   print_dec(t, 2,' '); LCD_dat('C');
+#endif
+  } else {
+    LCD_puts(MSG_NO_DS);
+  }
+// 4   ------------------------------------------------------------------------
+  LCD_SetXY(16, 3);
+  if (ds18x20GetDevCount() > 3)
+  {
+    t = ds18x20GetTemp(3) / 10;
+#if (TEMP_BLINK_MAX == 1) 
+    if (t >= max_temp)  {
+	  if (blinks == 0) {
+	    if (t < 0) LCD_dat('-'); else LCD_dat('+');
+	    print_dec(t, 2,' '); LCD_dat('C');
+	  } else {
+	    LCD_space(4);
+	  }
+    } else {
+	  if (t < 0) LCD_dat('-'); else LCD_dat('+');
+	  print_dec(t, 2,' '); LCD_dat('C');
+	}
+#else
+   if (t < 0) LCD_dat('-'); else LCD_dat('+');
+   print_dec(t, 2,' '); LCD_dat('C');
+#endif
+  } else {
+    LCD_puts(MSG_NO_DS);
+  }
+  } else {
+    ds_cnt_show = 0;
   }
 }
 //=============================================================================
@@ -412,9 +528,15 @@ void scan_fault(void)
 void set_blink(void)
 {
   blinks = !blinks;
+  if (ds_cnt_show < TIME_SHOW_DS) {
+    ds_cnt_show++;
+  } else {
+    ds_cnt_show = 0;
+  }
   if (nokey < NOKEY_TIME * 2) {
     nokey++;
   } else {
+    ds_cnt_show = 0;
     RTOS_setTask(EVENT_NOKEY, 0, 0);
   }
   if ((check_alarm() == 1) && (main_mode != MODE_OPTIONS) && (fault_on == 0)) {
@@ -551,6 +673,7 @@ void run_standby(unsigned char event)
 	  nokey = 0;
 	  LIGHT_on();
 	  BEEP_off();
+	  if (ds_cnt_show < TIME_SHOW_DS_1) ds_cnt_show = TIME_SHOW_DS_1; else ds_cnt_show = 0;
     break;
     case EVENT_TIMER_SECOND:
       show_bigtime();
@@ -560,6 +683,7 @@ void run_standby(unsigned char event)
 	  }
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  if (fault_on == 0) {
         SET_STATE(run_start);
         RTOS_setTask(EVENT_LOAD_PARAM, 0, 0);
@@ -603,6 +727,7 @@ void run_mute(unsigned char event)
 	  LIGHT_on();
 	  BEEP_off();
       time_alarm = 0;
+	  if (ds_cnt_show < TIME_SHOW_DS_1) ds_cnt_show = TIME_SHOW_DS_1; else ds_cnt_show = 0;
     break;
     case EVENT_NOKEY:
 	  LIGHT_off();
@@ -645,8 +770,10 @@ void run_nokey(unsigned char event)
       SET_STATE(old_pState);
       show_lcd_main();
 	  BEEP_off();
+	  if (ds_cnt_show < TIME_SHOW_DS_1) ds_cnt_show = TIME_SHOW_DS_1; else ds_cnt_show = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_stop);
@@ -691,6 +818,7 @@ void run_main(unsigned char event)
       RTOS_setTask(EVENT_TIMER_SECOND, 0, 0);
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
       SET_STATE(run_stop);
       RTOS_setTask(EVENT_SAVE_PARAM, 0, 0);
     break;
@@ -820,6 +948,7 @@ void run_option(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
       RTOS_setTask(EVENT_KEY_MENU, 0, 0);
     break;
     case EVENT_TIMER_SECOND:
@@ -964,6 +1093,7 @@ void run_edit_time(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_standby);
@@ -1032,6 +1162,7 @@ void run_edit_date(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_standby);
@@ -1103,6 +1234,7 @@ void run_edit_alarm(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_standby);
@@ -1247,6 +1379,7 @@ void run_edit_as_wait(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_standby);
@@ -1302,6 +1435,7 @@ void run_edit_temp_max(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       SET_STATE(run_standby);
@@ -1357,6 +1491,7 @@ void run_edit_stb_out(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       if (load_stb_out() == 1) { LED_STB_OUT_1; } else { LED_STB_OUT_0; }
@@ -1446,6 +1581,7 @@ void run_edit_fm_stations(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  key_stb = 1;
       RTOS_setTask(EVENT_SET_AS_WAIT_OFF, 0, 0);
     break;
@@ -1563,6 +1699,7 @@ void run_alarm(unsigned char event)
       SET_STATE(run_main);
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
 	  LCD_clear();
       LCD_load_bignum();
       tda7313SetMute(1);
@@ -1615,6 +1752,7 @@ void run_edit_rc5_code(unsigned char event)
 	  nokey = 0;
     break;
     case EVENT_KEY_STANDBY:
+      stb_impuls();
       edit_rc5 = 0;
 	  LCD_clear();
       LCD_load_bignum();

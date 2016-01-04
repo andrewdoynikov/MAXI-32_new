@@ -65,6 +65,7 @@ void KBD_init(void)
   DDR(LED_MUTE_DUBLE) |= LED_MUTE_DUBLE_LINE;
   LED_MUTE_DUBLE_1;
   DDR(LED_STB_IMPULS) |= LED_STB_IMPULS_LINE;
+  LED_STB_IMPULS_0;
 //-----------------------------------------------------------------------------
 }
 //=============================================================================

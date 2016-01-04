@@ -15,6 +15,7 @@
 #define MSG_NO_RC5			"??"
 #define MSG_SAVE_RC5		"SET RC5 KEY"
 #define MSG_FAULT			"* FAULT *"
+#define MSG_NO_DS			" ---"
 //=============================================================================
 char *den_dw[] = {"MO","TU","WE","TH","FR","SA","SU"};
 char *den_dw_full[] = {"  Monday  ","  Tuesday ","Wednesday "," Thursday ","  Friday  ","  Saturday ", "  Sunday  "};
